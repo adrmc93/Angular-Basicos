@@ -1,0 +1,19 @@
+<!--Ejemplo de directivas estructurales *ngFor = ""-->
+<p>Listado de Héroes</p><!--Parrafo-->
+<div *ngIf="heroeBorrado !== ''; else noBorrado"><!--<div *ngIf="heroeBorrado">-->
+    <h3>Héroe Borrado: <small>{{heroeBorrado}}</small></h3>
+    <!--<span>{{heroeBorrado}}</span>-->
+</div>
+<ng-template #noBorrado><!--ng-template es propio de angular, no tiene equivalente en java-->
+    <h3>No ha borrado nada.</h3><!--ngIf-else, se usa # para una referencia local-->
+</ng-template>
+
+<button (click)="borrarHeroe()">
+    Borrar
+</button>
+
+<ul><!--unordered list -lista no ordenada-->
+    <li *ngFor = "let heroe of heroes; let i = index"><!-- list item-->
+        {{i+1}} - {{heroe}}
+    </li>
+</ul>
